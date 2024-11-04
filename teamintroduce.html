@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>나만의 추억앨범</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+
+        .mytitle {
+            background-color: green;
+            color: white;
+
+            height: 250px;
+
+            /* 내용물을 정렬 */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding-left: 50px; /* 왼쪽 여백 */
+            font-weight: bold;
+
+            background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20231006/pngtree-a-3d-illustration-of-space-flight-journeying-amidst-billions-of-stars-image_13537046.png');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .mybottom {
+            background-color: rgb(22, 11, 46); /* 배경색을 검은색으로 설정 */
+            color: white;
+
+            height: 200px;
+
+            /* 내용물을 정렬 */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding-left: 50px; /* 왼쪽 여백 */
+            font-weight: bold;
+
+            bottom: 0; /* 하단에 배치 */
+            left: 0; /* 왼쪽에 배치 */
+            right: 0; /* 오른쪽으로 꽉 차게 */
+
+            
+            background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20231006/pngtree-a-3d-illustration-of-space-flight-journeying-amidst-billions-of-stars-image_13537046.png');
+            background-position: center;
+            background-size: cover;            
+        }
+
+        .mytitle>button {
+            width: 150px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+
+            border: 1px solid white;
+            margin-top: 20px;
+        }
+
+        /* 입력 박스 스타일 */
+        .mypostingbox {
+            width: auto; /* 고정된 너비 설정 */
+            padding: 20px; /* 내부 여백 */
+            border: 1px solid #ccc; /* 테두리 */
+            border-radius: 5px; /* 모서리 둥글게 */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 */
+        }
+
+        /* 카드 스타일 */
+        .mycards {
+            flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
+            max-height: 400px; /* 고정된 높이 설정 */
+            overflow-y: auto; /* 세로 스크롤 가능 */
+            padding: 10px; /* 내부 여백 */
+            border: 1px solid #ccc; /* 테두리 */
+            border-radius: 5px; /* 모서리 둥글게 */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 */
+        }
+
+        /* 카드의 이미지 크기 조정 */
+        .card-img-top {
+            height: 200px; /* 카드 이미지 높이 고정 */
+            object-fit: cover; /* 비율 유지하며 자르기 */
+        }
+
+        .mainmypostingbox {
+            width: auto;
+            margin: 20px auto;
+            padding: 20px 20px 20px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 3px 0px blue;
+        }
+
+        .semimypostingbox {
+            background-color: green;
+            color: white;
+
+            height: 300px;
+
+            /* 내용물을 정렬 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px; /* 공백 간격 조정 */
+            font-weight: bold;
+
+            width: 45%; /* 너비 조정 */
+            margin: 20px 30px 100px 30px; /* 위, 오른쪽, 아래, 왼쪽 여백 */
+            padding: 20px; /* 패딩 설정 */
+            border-radius: 5px;
+            box-shadow: 0px 0px 3px 0px blue;
+
+            background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20231006/pngtree-a-3d-illustration-of-space-flight-journeying-amidst-billions-of-stars-image_13537046.png');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .mybtn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 10px;
+        }
+
+        .fade-in {
+        opacity: 0; /* 초기 투명도 설정 */
+        transition: opacity 1s ease-in; /* 부드러운 전환 */
+        }
+        
+        .mybtn>button {
+            margin-right: 10px;
+        }
+    </style>
+    <script type="module">
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCz-aTF0iQvQilKJyrTHQxg1T2X_13trtw",
+            authDomain: "sparta-49ce5.firebaseapp.com",
+            projectId: "sparta-49ce5",
+            storageBucket: "sparta-49ce5.appspot.com",
+            messagingSenderId: "819019173056",
+            appId: "1:819019173056:web:e47a0781c0b38268923125",
+            measurementId: "G-0NFWX91DD1"
+        };
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        $("#postingbtn").click(async function () {
+            let image = $('#image').val();
+            let title = $('#title').val();
+            let content = $('#content').val();
+            let date = $('#date').val();
+
+            let doc = {
+                'image': image,
+                'title': title,
+                'content': content,
+                'date': date
+            };
+            await addDoc(collection(db, "albums"), doc);
+            alert('저장완료!');
+            window.location.reload();
+        })
+
+        $("#savebtn").click(async function () {
+            $('#postingbox').toggle();
+        })
+
+
+        let url = "http://spartacodingclub.shop/sparta_api/seoulair";
+        fetch(url).then(res => res.json()).then(data => {
+            let mise = data['RealtimeCityAir']['row'][0]['IDEX_NM']
+            $('#msg').text(mise)
+        })
+
+        let docs = await getDocs(collection(db, "albums"));
+        docs.forEach((doc) => {
+            let row = doc.data();
+
+            let image = row['image'];
+            let title = row['title'];
+            let content = row['content'];
+            let date = row['date'];
+
+            let temp_html = `
+            <div class="col">
+                <div class="card h-100">
+                    <img src="${image}"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${title}</h5>
+                        <p class="card-text">${content}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">${date}</small>
+                    </div>
+                </div>
+            </div>`;
+            $('#card').append(temp_html);
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="mytitle">
+        <h1>이경훈</h1>
+        <p style="margin: 5px 0;">나이 : 25세</p>
+        <p style="margin: 5px 0;">성별 : 남성</p>
+        <p style="margin: 5px 0;">MBTI : INFJ</p>
+        <div>
+            <p style="border: 1px solid #ccc; padding: 10px; font-size: 12px; display: inline-block;">
+                현재 서울의 미세먼지 : <span id="msg">나쁨</span>
+            </p>
+        </div>
+    </div>
+
+    <p style="border: 6px solid; text-align: center; font-size: 30px; font-weight: bold; border-color: purple; color: purple; margin: 50px auto 100px auto;">
+        Goal : 비전공자도 할 수 있다는 것을 보여주는 것
+    </p>
+
+    <div class="mainmypostingbox" id="postingbox">
+        <h1>Team Goal</h1>
+        <p style="margin: 5px 0;">1. javascript, http, css를 이용한 기본적인 웹페이지 개설 능력 강화</p>
+        <p style="margin: 5px 0;">2. Firebase를 통한 Api의 사용 이해</p>
+        <p style="margin: 5px 0;">3. 팀활동을 통한 팀워크 개발</p>
+    </div>
+
+
+    <div>
+        <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
+            <h1>Team Goal</h1>
+            <p style="margin: 5px 0;">1. javascript, http, css를 이용한 기본적인 웹페이지 개설 능력 강화</p>
+            <p style="margin: 5px 0;">2. Firebase를 통한 Api의 사용 이해</p>
+            <p style="margin: 5px 0;">3. 팀활동을 통한 팀워크 개발</p>
+        </div>
+        <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
+            <h1>Team Goal</h1>
+            <p style="margin: 5px 0;">1. javascript, http, css를 이용한 기본적인 웹페이지 개설 능력 강화</p>
+            <p style="margin: 5px 0;">2. Firebase를 통한 Api의 사용 이해</p>
+            <p style="margin: 5px 0;">3. 팀활동을 통한 팀워크 개발</p>
+        </div>        
+    </div>
+
+    <div class="container">
+        <div class="mypostingbox" id="postingbox">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="image" placeholder="name@example.com">
+                <label for="floatingInput">앨범 이미지</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="title" placeholder="name@example.com">
+                <label for="floatingInput">앨범 제목</label>
+            </div>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="content" placeholder="name@example.com">
+                <label for="floatingTextarea">앨범 내용</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="date" placeholder="name@example.com">
+                <label for="floatingInput">앨범 날짜</label>
+            </div>
+            <div class="mybtn">
+                <button id="postingbtn" type="button" class="btn btn-dark">기록하기</button>
+                <button type="button" class="btn btn-outline-dark">닫기</button>
+            </div>
+        </div>
+    
+        <div class="mycards">
+            <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">앨범 제목</h5>
+                            <p class="card-text">앨범 내용</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">앨범 날짜</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- 추가 카드 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">앨범 제목</h5>
+                            <p class="card-text">앨범 내용</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">앨범 날짜</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">앨범 제목</h5>
+                            <p class="card-text">앨범 내용</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">앨범 날짜</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">앨범 제목</h5>
+                            <p class="card-text">앨범 내용</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">앨범 날짜</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mybottom">
+        <h1>팀 노션</h1>
+        <p style="margin: 5px 0;">
+            <a href="https://www.notion.so/teamsparta/NoBase-1332dc3ef51480a88426dec85549a316" target="_blank" style="color: white; text-decoration: underline;">
+                https://www.notion.so/teamsparta/NoBase-1332dc3ef51480a88426dec85549a316
+            </a>
+        </p>
+    </div>
+
+</body>
+
+</html>
