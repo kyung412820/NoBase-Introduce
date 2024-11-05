@@ -10,16 +10,16 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
-       @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Climate+Crisis&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Climate+Crisis&display=swap');
 
         * {
             font-family: "Climate Crisis", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-    "YEAR" 2020;
-      }
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+                "YEAR" 2020;
+        }
 
         .mytitle {
             color: white;
@@ -28,10 +28,12 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
-            font-size: 200px; /* 크기를 줄여보세요 */
+            font-size: 200px;
+            /* 크기를 줄여보세요 */
             font-family: "Playfair Display", serif;
             font-optical-sizing: auto;
-            font-style: normal; /* 폰트 패밀리 수정 */
+            font-style: normal;
+            /* 폰트 패밀리 수정 */
             padding-left: 50px;
             font-weight: bold;
             background-color: black;
@@ -40,7 +42,8 @@
         }
 
         .mybottom {
-            background-color: rgb(22, 11, 46); /* 배경색을 검은색으로 설정 */
+            background-color: rgb(22, 11, 46);
+            /* 배경색을 검은색으로 설정 */
             color: white;
 
             height: 200px;
@@ -50,17 +53,21 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
-            padding-left: 50px; /* 왼쪽 여백 */
+            padding-left: 50px;
+            /* 왼쪽 여백 */
             font-weight: bold;
 
-            bottom: 0; /* 하단에 배치 */
-            left: 0; /* 왼쪽에 배치 */
-            right: 0; /* 오른쪽으로 꽉 차게 */
+            bottom: 0;
+            /* 하단에 배치 */
+            left: 0;
+            /* 왼쪽에 배치 */
+            right: 0;
+            /* 오른쪽으로 꽉 차게 */
 
-            
+
             background-color: black;
             background-position: center;
-            background-size: cover;            
+            background-size: cover;
         }
 
         .mytitle>button {
@@ -79,28 +86,42 @@
 
         /* 입력 박스 스타일 */
         .mypostingbox {
-            width: auto; /* 고정된 너비 설정 */
-            padding: 20px; /* 내부 여백 */
-            border: 1px solid #ccc; /* 테두리 */
-            border-radius: 5px; /* 모서리 둥글게 */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 */
+            width: auto;
+            /* 고정된 너비 설정 */
+            padding: 20px;
+            /* 내부 여백 */
+            border: 1px solid #ccc;
+            /* 테두리 */
+            border-radius: 5px;
+            /* 모서리 둥글게 */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            /* 그림자 */
         }
 
         /* 카드 스타일 */
         .mycards {
-            flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
-            max-height: 400px; /* 고정된 높이 설정 */
-            overflow-y: auto; /* 세로 스크롤 가능 */
-            padding: 10px; /* 내부 여백 */
-            border: 1px solid #ccc; /* 테두리 */
-            border-radius: 5px; /* 모서리 둥글게 */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 */
+            flex: 1;
+            /* 남은 공간을 모두 차지하도록 설정 */
+            max-height: 400px;
+            /* 고정된 높이 설정 */
+            overflow-y: auto;
+            /* 세로 스크롤 가능 */
+            padding: 10px;
+            /* 내부 여백 */
+            border: 1px solid #ccc;
+            /* 테두리 */
+            border-radius: 5px;
+            /* 모서리 둥글게 */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            /* 그림자 */
         }
 
         /* 카드의 이미지 크기 조정 */
         .card-img-top {
-            height: 200px; /* 카드 이미지 높이 고정 */
-            object-fit: cover; /* 비율 유지하며 자르기 */
+            height: 200px;
+            /* 카드 이미지 높이 고정 */
+            object-fit: cover;
+            /* 비율 유지하며 자르기 */
         }
 
         .mainmypostingbox {
@@ -121,13 +142,17 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            gap: 10px; /* 공백 간격 조정 */
+            gap: 10px;
+            /* 공백 간격 조정 */
             font-weight: bold;
             font-size: 25px;
 
-            width: 45%; /* 너비 조정 */
-            margin: 20px 30px 100px 30px; /* 위, 오른쪽, 아래, 왼쪽 여백 */
-            padding: 20px; /* 패딩 설정 */
+            width: 45%;
+            /* 너비 조정 */
+            margin: 20px 30px 100px 30px;
+            /* 위, 오른쪽, 아래, 왼쪽 여백 */
+            padding: 20px;
+            /* 패딩 설정 */
             border-radius: 5px;
             box-shadow: 0px 0px 10px 0px black;
 
@@ -144,28 +169,38 @@
 
             margin-top: 10px;
         }
+
         .paceimage {
             display: flex;
-            justify-content: space-around; /* Or any alignment you prefer */
-            margin: 20px 0; /* Adjust the spacing around the images */
+            justify-content: space-around;
+            /* Or any alignment you prefer */
+            margin: 20px 0;
+            /* Adjust the spacing around the images */
         }
 
         .paceimage img {
-            width: 150px; /* Set desired width */
-            height: 150px; /* Maintain aspect ratio */
-            border-radius: 10px; /* Optional: adds rounded corners to images */
-            transition: transform 0.2s; /* Adds a hover effect */
+            width: 150px;
+            /* Set desired width */
+            height: 150px;
+            /* Maintain aspect ratio */
+            border-radius: 10px;
+            /* Optional: adds rounded corners to images */
+            transition: transform 0.2s;
+            /* Adds a hover effect */
         }
 
         .paceimage img:hover {
-            transform: scale(1.5); /* Scale up on hover */
+            transform: scale(1.5);
+            /* Scale up on hover */
         }
 
         .fade-in {
-        opacity: 0; /* 초기 투명도 설정 */
-        transition: opacity 1s ease-in; /* 부드러운 전환 */
+            opacity: 0;
+            /* 초기 투명도 설정 */
+            transition: opacity 1s ease-in;
+            /* 부드러운 전환 */
         }
-        
+
         .mybtn>button {
             margin-right: 10px;
         }
@@ -255,16 +290,20 @@
     </div>
 
     <div class="mytab">
-        <button onclick="location.href='teamintroduce.html'" style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
+        <button onclick="location.href='teamintroduce.html'"
+            style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
             팀 소개
         </button>
-        <button onclick="location.href='guestbook.html'" style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
+        <button onclick="location.href='guestbook.html'"
+            style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
             방명록
         </button>
-        <button onclick="location.href='member_settings.html'" style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
+        <button onclick="location.href='member_settings.html'"
+            style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
             팀 수정
         </button>
-        <button onclick="location.href='team_train.html'" style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
+        <button onclick="location.href='team_train.html'"
+            style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
             학습 기록
         </button>
     </div>
@@ -293,37 +332,37 @@
             <img src="준일님.jpg" alt="Team Member 5" style="width: 100px; height: auto;">
         </a>
     </div>
-     
 
-        <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
-            <h1>My Strength</h1>
-            <p style="margin: 10px 0;">1. 타인에 비해 흥미가 많은 편입니다.</p>
-            <p style="margin: 10px 0;">2. 무언갈 도전하는 것을 즐깁니다.</p>
-            <p style="margin: 10px 0;">3. 팀활동을 다양하게 해봤습니다.</p>
-        </div>
-        <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
-            <h1>Collaborative Style</h1>
-            <p style="margin: 10px 0;">1. 팀원들이 하고자 하는 방향을 잡고 일을 완수할 수 있도록 조력.</p>
-            <p style="margin: 10px 0;">2. 학생의 입장으로 서로에게 배우는 자세. </p>
-            <p style="margin: 10px 0;">3. 서로의 의견을 존중하고 배려.</p>
-        </div>        
+
+    <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
+        <h1>My Strength</h1>
+        <p style="margin: 10px 0;">1. 타인에 비해 흥미가 많은 편입니다.</p>
+        <p style="margin: 10px 0;">2. 무언갈 도전하는 것을 즐깁니다.</p>
+        <p style="margin: 10px 0;">3. 팀활동을 다양하게 해봤습니다.</p>
+    </div>
+    <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
+        <h1>Collaborative Style</h1>
+        <p style="margin: 10px 0;">1. 팀원들이 하고자 하는 방향을 잡고 일을 완수할 수 있도록 조력.</p>
+        <p style="margin: 10px 0;">2. 학생의 입장으로 서로에게 배우는 자세. </p>
+        <p style="margin: 10px 0;">3. 서로의 의견을 존중하고 배려.</p>
+    </div>
     </div>
 
 
-    
+
 
 
 </body>
 
-         <h1>Collaborative Style</h1>
-            <p style="margin: 10px 0;">1. 팀원들이 하고자 하는 방향을 잡고 일을 완수할 수 있도록 조력.</p>
-            <p style="margin: 10px 0;">2. 학생의 입장으로 서로에게 배우는 자세. </p>
-            <p style="margin: 10px 0;">3. 서로의 의견을 존중하고 배려.</p>
-        </div>        
-    </div>
+<h1>Collaborative Style</h1>
+<p style="margin: 10px 0;">1. 팀원들이 하고자 하는 방향을 잡고 일을 완수할 수 있도록 조력.</p>
+<p style="margin: 10px 0;">2. 학생의 입장으로 서로에게 배우는 자세. </p>
+<p style="margin: 10px 0;">3. 서로의 의견을 존중하고 배려.</p>
+</div>
+</div>
 
 
-    
+
 
 
 </body>
