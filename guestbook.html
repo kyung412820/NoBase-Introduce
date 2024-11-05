@@ -9,8 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=Noto+Sans+KR:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+        }
+
         .mytitle {
-            background-color: lightgreen;
+            background-color: black;
             color: white;
 
             height: 250px;
@@ -21,9 +26,6 @@
             align-items: center;
             justify-content: center;
 
-            background-image: url('https://images.unsplash.com/photo-1511992243105-2992b3fd0410?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-position: center;
-            background-size: cover;
 
             font-size: 3em;
         }
@@ -83,23 +85,24 @@
         }
 
         #c1 {
-            background-color: lightseagreen;
+            background-color: black;
+            border-color: rgba(255, 255, 255, 0.4) !important;
         }
 
         #c2 {
-            background-color: lightgreen;
+            background-color: darkgray;
         }
 
         #c3 {
-            background-color: lightgoldenrodyellow;
+            background-color: silver;
         }
 
         #c4 {
-            background-color: lightpink;
+            background-color: lightgray;
         }
 
         #c5 {
-            background-color: lightcoral;
+            background-color: white;
         }
 
         #input-color {
@@ -116,6 +119,14 @@
         #time {
             color: darkgray;
         }
+
+        .input-group-text {
+            /* color: white;
+            background-color: black; */
+        }
+
+        
+
     </style>
     <script type="module">
         // Firebase SDK 라이브러리 가져오기
@@ -140,6 +151,10 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+        $("#backbtn").click(async function () {
+            console.log("backbtn");
+            history.back();
+        });
 
         $("#postingbtn").click(async function () {
             const day = new Date();
@@ -168,9 +183,8 @@
             let date = row['date'];
             let content = row['content'];
 
-            // Firestore Timestamp를 JavaScript Date 객체로 변환
             const savedDate = date.toDate().toISOString().split('T')[0];
-            const savedTime = date.toDate().toISOString().split('T')[1].substring(0, 5); // 시간:분까지만 표시
+            const savedTime = date.toDate().toISOString().split('T')[1].substring(0, 5);
 
             let temp_html = `
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
@@ -190,9 +204,9 @@
 
         let color = "c1";
         $("#c1").css("border-width", "0.5rem");
-        
+
         let getColor = function () {
-            $("#"+color).css("border-width", "0.2rem");
+            $("#" + color).css("border-width", "0.2rem");
             color = $(this).attr("id");
             console.log(color);
             $(this).css("border-width", "0.5rem");
@@ -208,8 +222,9 @@
 <body>
     <!-- 헤더 -->
     <div class="mytitle"><span class="title">방명록<span></div>
+    <div id="backbtn" class="d-flex flex-column flex-md-row p-4 align-items-center justify-content-center">돌아가기</div>
     <!-- 리스트 -->
-    <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
         <div id="list" class="list-group">
             <!-- 입력 -->
             <div id="input-wrap" class="list-group-item d-flex gap-3 py-3">
@@ -232,7 +247,7 @@
                         <div id="colorbtn-wrap"><span id="c3" class="colorbtn"></span></div>
                         <div id="colorbtn-wrap"><span id="c4" class="colorbtn"></span></div>
                         <div id="colorbtn-wrap"><span id="c5" class="colorbtn"></span></div>
-                        <button id="postingbtn" type="button" class="btn btn-outline-primary">등록</button>
+                        <button id="postingbtn" type="button" class="btn btn-dark">등록</button>
                     </div>
                     <div id="button" class="input-group py-1">
 
