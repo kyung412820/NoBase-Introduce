@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀원 설정</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script type="module">// Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, setDoc, getDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+
+        // Firebase 구성 정보 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyCidD4TqbOGQXZghpEkQq-0EhsHiALEkfc",
+            authDomain: "sparta-14717.firebaseapp.com",
+            projectId: "sparta-14717",
+            storageBucket: "sparta-14717.firebasestorage.app",
+            messagingSenderId: "1060049658038",
+            appId: "1:1060049658038:web:f247e968382ebb23bb8617",
+            measurementId: "G-51SZNG2G2T"
+        };
+
+
+        // Firebase 인스턴스 초기화
+
+        // 메인페이지로 돌아가기
+        $("#gohome").click(async function () {
+            let url = "/teamintroduce_main.html";
+            location.replace(url);
+        });
+
+
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        let create_id = 0;
+        let id = 0;
+        const querySnapshot = await getDocs(collection(db, "teamdata"));
+
+
+        querySnapshot.forEach((doc) => {
+            if (doc.data().id != 0) {
+
+                let inner_html = `<option value="${doc.data().id}">${doc.data().name}</option>`
+                $("#editselect").append(inner_html);
+                create_id = doc.data().id;
+                console.log(doc.data().id);
+            }
+        })
+
+        //선택메뉴에 팀원목록 춛가하기
+        $("#editselect").change(async function () {
+            console.log($(this).val());
+            let getUserdata = await getDoc(doc(db, "teamdata", $(this).val()));
+            let getUser = getUserdata.data();
+            $('#team-member-image').attr('value', getUser.image);
+            $('#team-member-name').attr('value', getUser.name);
+            $('#team-member-age').attr('value', getUser.age);
+            $('#team-member-blog').attr('value', getUser.blog);
+            $('#team-member-gender').attr('value', getUser.gender);
+            $("#team-member-intro").attr('value', getUser.intro);
+            id = getUser.id;
+        })
+        //팀원 추가버튼
+        $("#adding").click(async function () {
+
+            let image = $("#team-member-image").val();
+            let name = $("#team-member-name").val();
+            let age = $("#team-member-age").val();
+            let blog = $("#team-member-blog").val();
+            let gender = $("#team-member-gender").val();
+            let intro = $("#team-member-intro").val();
+
+
+
+            create_id = create_id + 1;
+            let data = {
+                "image": image,
+                "name": name,
+                "age": age,
+                "blog": blog,
+                "gender": gender,
+                "intro" : intro,
+                "id": create_id
+            };
+            await setDoc(doc(db, "teamdata", create_id.toString()), data)
+            .then(result => alert("추가되었습니다."))
+            .catch(result => alert("추가에 실채했습니다."));
+            location.reload();
+
+        });
+
+       //팀원 수정 버튼
+        $("#editing").click(async function () {
+
+
+
+            let image = $("#team-member-image").val();
+            let name = $("#team-member-name").val();
+            let age = $("#team-member-age").val();
+            let blog = $("#team-member-blog").val();
+            let gender = $("#team-member-gender").val();
+            let intro = $("#team-member-intro").val();
+
+
+            if (id == 0) {
+
+                alert("수정할 대상을 선택하지 않았습니다.");
+            } else {
+                let data = {
+                    "image": image,
+                    "name": name,
+                    "age": age,
+                    "blog": blog,
+                    "gender": gender,
+                    "id": id,
+                    "intro": intro
+                };
+                await setDoc(doc(db, "teamdata", id.toString()), data)
+                .then(result =>
+                    alert("수정에 성공했습니다")
+                ).catch(result => alert("수정에 실패했습니다.")
+                )
+                location.reload();
+            }
+
+        });
+
+        $("#deleting").click(async function () {
+            if (id == 0) {
+                alert("삭제할 항목이 선택되지 않았습니다.")
+            } else {
+                await deleteDoc(doc(db, "teamdata", id.toString())).then(
+                    result => alert("삭제되었습니다.")
+                ).catch(result => alert("삭제에 실패했습니다."));
+                location.reload();
+            }
+
+        });
+
+    </script>
+    <style>
+        .mypostingbox {
+            width: 500px;
+            margin: 30px auto 0px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 0px;
+            border-radius: 5px;
+        }
+
+        .mybtn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .mybtn>button {
+            margin-right: 5px;
+        }
+
+        .form-select {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mypostingbox" id="addingpostingbox">
+        <select class="form-select" id="editselect" aria-label="Default select example">
+            <option selected value="0">팀원선택</option>
+        </select>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="team-member-image" placeholder="팀원 사진 주소">
+            <label for="floatingInput">팀원 사진 주소</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="team-member-name" placeholder="팀원 이름">
+            <label for="floatingInput">팀원 이름</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="team-member-age" placeholder="팀원 나이">
+            <label for="floatingInput">팀원 나이</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="team-member-blog" placeholder="팀원 블로그">
+            <label for="floatingInput">팀원 블로그</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="team-member-gender" placeholder="팀원 성별">
+            <label for="floatingInput">팀원 성별</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="team-member-intro" placeholder="팀원 소개">
+            <label for="floatingInput">팀원 소개</label>
+        </div>
+        <div class="mybtn">
+            <button type="button" class="btn btn-dark" id="adding">기록 하기</button>
+            <button type="button" class="btn btn-dark" id="editing">수정 하기</button>
+            <button type="button" class="btn btn-dark" id="deleting">삭제 하기</button>
+            <button type="button" class="btn btn-outline-dark" id="gohome">홈으로 돌아가기</button>
+        </div>
+    </div>
+
+</html>
