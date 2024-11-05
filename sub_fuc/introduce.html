@@ -10,13 +10,24 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1990&family=Noto+Sans+KR:wght@100..900&display=swap');
+
 
         * {
-            font-family: 'Gowun Dodum', sans-serif;
+            font-family: "Noto Sans KR", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+
         }
 
         .mytitle {
+            font-family: "Climate Crisis", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+                "YEAR" 1979;
             background-color: green;
             color: white;
 
@@ -30,12 +41,24 @@
             padding-left: 50px;
             /* 왼쪽 여백 */
             font-weight: bold;
-            background-color: black;
-        }
 
+            background-color: black;
+            background-position: center;
+            background-size: cover;
+        }
+        .style{
+            border: 6px solid; text-align: center; font-size: 30px; font-weight: bold; border-color: black; color: black; margin: 20px auto 20px auto;
+            font-family: "Climate Crisis", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+                "YEAR" 1990;
+
+        }
         .mybottom {
-            background-color: rgb(22, 11, 46);
-            /* 배경색을 검은색으로 설정 */
+            background-color: black;
+                /* 배경색을 검은색으로 설정 */
             color: white;
 
             height: 200px;
@@ -58,6 +81,8 @@
 
 
             background-color: black;
+            background-position: center;
+            background-size: cover;
         }
 
         .mytitle>button {
@@ -147,6 +172,8 @@
             box-shadow: 0px 0px 3px 0px black;
 
             background-color: black;
+            background-position: center;
+            background-size: cover;
         }
 
         .mybtn {
@@ -250,19 +277,14 @@
 
 <body>
     <div class="mytitle">
-        <h1>이경훈</h1>
-        <p style="margin: 5px 0;">나이 : 25세</p>
-        <p style="margin: 5px 0;">성별 : 남성</p>
-        <p style="margin: 5px 0;">MBTI : INFJ</p>
-        <div>
-            <p style="border: 1px solid #ccc; padding: 10px; font-size: 12px; display: inline-block;">
-                현재 서울의 미세먼지 : <span id="msg">나쁨</span>
-            </p>
-        </div>
+        <h1 style="font-size: 120px; font-family: 'Climate Crisis', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        ">From Base</h1>
     </div>
 
-    <p
-        style="border: 6px solid; text-align: center; font-size: 30px; font-weight: bold; border-color: black; color: black; margin: 50px auto 100px auto;">
+    <p class ="style">
         Goal : 비전공자도 할 수 있다는 것을 보여주는 것
     </p>
 
@@ -276,10 +298,10 @@
 
     <div>
         <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
-            <h1>My Strength</h1>
-            <p style="margin: 10px 0;">1. 타인에 비해 흥미가 많은 편입니다.</p>
+            <h1>Our Strength</h1>
+            <p style="margin: 10px 0;">1. 비전공 집단인 만큼.</p>
             <p style="margin: 10px 0;">2. 무언갈 도전하는 것을 즐깁니다.</p>
-            <p style="margin: 10px 0;">3. 팀활동을 다양하게 해봤습니다.</p>
+            <p style="margin: 10px 0;">3. 다양한 팀 활동에 적극적으로 참여할 것입니다.</p>
         </div>
         <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
             <h1>Collaborative Style</h1>
@@ -379,6 +401,9 @@
                 style="color: white; text-decoration: underline;">
                 https://www.notion.so/teamsparta/NoBase-1332dc3ef51480a88426dec85549a316
             </a>
+            <p style="border: 1px solid #ccc; padding: 10px; font-size: 12px; display: inline-block;">
+                현재 서울의 미세먼지 : <span id="msg">나쁨</span>
+            </p>
         </p>
     </div>
 

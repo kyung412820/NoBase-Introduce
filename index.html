@@ -12,14 +12,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Climate+Crisis&display=swap');
 
-        * {
+        /* * {
             font-family: "Climate Crisis", sans-serif;
             font-optical-sizing: auto;
             font-weight: 400;
             font-style: normal;
             font-variation-settings:
                 "YEAR" 2020;
-        }
+        } */
 
         .mytitle {
             color: white;
@@ -136,7 +136,7 @@
             background-color: green;
             color: white;
 
-            height: 300px;
+            height: 400px;
 
             /* 내용물을 정렬 */
             display: flex;
@@ -149,7 +149,7 @@
 
             width: 45%;
             /* 너비 조정 */
-            margin: 20px 30px 100px 30px;
+            margin: 40px 30px 100px 30px;
             /* 위, 오른쪽, 아래, 왼쪽 여백 */
             padding: 20px;
             /* 패딩 설정 */
@@ -286,85 +286,91 @@
 
 <body>
     <div class="mytitle">
-        <p>No Base</p>
+        <p style="font-size: 200px; font-family: 'Climate Crisis', sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;">No Base</p>
     </div>
 
     <div class="mytab">
-        <button onclick="location.href='teamintroduce.html'"
+        <button onclick="location.href='sub_fuc/introduce.html'"
             style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
             팀 소개
         </button>
-        <button onclick="location.href='guestbook.html'"
+        <button onclick="location.href='sub_fuc/guestbook.html'"
             style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
             방명록
         </button>
-        <button onclick="location.href='member_settings.html'"
+        <button onclick="location.href='sub_fuc/member_settings.html'"
             style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
             팀 수정
         </button>
-        <button onclick="location.href='team_train.html'"
+        <button onclick="location.href='sub_fuc/team_train.html'"
             style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
             학습 기록
         </button>
     </div>
 
     <div class="mainmypostingbox" id="postingbox">
-        <h1>Team Goal</h1>
+        <h1 style="font-size: 40px; font-family: 'Climate Crisis', sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;">Team Goal</h1>
         <p style="margin: 5px 0;">1. javascript, http, css를 이용한 기본적인 웹페이지 개설 능력 강화</p>
         <p style="margin: 5px 0;">2. Firebase를 통한 Api의 사용 이해</p>
         <p style="margin: 5px 0;">3. 팀활동을 통한 팀워크 개발</p>
     </div>
 
     <div class="paceimage">
-        <a href="teamintroduce.html">
-            <img src="경훈.jpg" alt="Team Member 1" style="width: 100px; height: auto;">
+        <a href="per_introduce\intro_kunghun.html">
+            <img src="pictures\kunghun.jpg" alt="Team Member 1" style="width: 100px; height: auto;">
         </a>
-        <a href="team_member_2.html">
-            <img src="영균님.jpg" alt="Team Member 2" style="width: 100px; height: auto;">
+        <a href="per_introduce\intro_kungbin.html">
+            <img src="pictures\kungbin.jpg" alt="Team Member 2" style="width: 100px; height: auto;">
         </a>
-        <a href="team_member_3.html">
-            <img src="윤현님.jpg" alt="Team Member 3" style="width: 100px; height: auto;">
+        <a href="per_introduce\intro_junil.html">
+            <img src="pictures\junil.jpg" alt="Team Member 3" style="width: 100px; height: auto;">
         </a>
-        <a href="team_member_4.html">
-            <img src="경빈님.jpg" alt="Team Member 4" style="width: 100px; height: auto;">
+        <a href="per_introduce\intro_yunhyun.html">
+            <img src="pictures\yunhyun.jpg" alt="Team Member 4" style="width: 100px; height: auto;">
         </a>
-        <a href="team_member_5.html">
-            <img src="준일님.jpg" alt="Team Member 5" style="width: 100px; height: auto;">
+        <a href="per_introduce\intro_yungyun.html">
+            <img src="pictures\yungyun.jpg" alt="Team Member 5" style="width: 100px; height: auto;">
         </a>
     </div>
 
+    <div >
 
-    <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
-        <h1>My Strength</h1>
-        <p style="margin: 10px 0;">1. 타인에 비해 흥미가 많은 편입니다.</p>
-        <p style="margin: 10px 0;">2. 무언갈 도전하는 것을 즐깁니다.</p>
-        <p style="margin: 10px 0;">3. 팀활동을 다양하게 해봤습니다.</p>
+        <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
+            <h1 style="font-size: 40px; font-family: 'Climate Crisis', sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;">Team Rules</h1>
+            <p style="margin: 10px 0;">1. 시간 약속을 철저히 지키겠습니다.</p>
+            <p style="margin: 10px 0;">2. 소통을 중요시하며 자리 비움이나 문제가 생기면 빠르게 공유하겠습니다.</p>
+            <p style="margin: 10px 0;">3. 실수나 문제가 있어도 남 탓하지말고 문제를 해결해나가는데 집중하겠습니다.</p>
+            <p style="margin: 10px 0;">4. 대화를 할 때는 캠도 켜고 화면공유도 잘 하겠습니다. </p>
+            <p style="margin: 10px 0;">5. 파이팅하겠습니다!</p>
+        </div>
+        <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
+            <h1 style="font-size: 40px; font-family: 'Climate Crisis', sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;">Our Goal</h1>
+            <p style="margin: 10px 0;">1. 매일 일정 소화하기</p>
+            <p style="margin: 10px 0;">2. 부끄러워도 물어보기</p>
+            <p style="margin: 10px 0;">3. 이번 프로젝트 포트폴리오로 사용하기</p>
+            <p style="margin: 10px 0;">4. TIL 남은날까지 맨날 쓰기 </p>
+            <p style="margin: 10px 0;">5. 1일 1TIL, 1알고리즘</p>
+        </div>
+
     </div>
-    <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
-        <h1>Collaborative Style</h1>
-        <p style="margin: 10px 0;">1. 팀원들이 하고자 하는 방향을 잡고 일을 완수할 수 있도록 조력.</p>
-        <p style="margin: 10px 0;">2. 학생의 입장으로 서로에게 배우는 자세. </p>
-        <p style="margin: 10px 0;">3. 서로의 의견을 존중하고 배려.</p>
-    </div>
-    </div>
-
-
-
-
 
 </body>
 
-<h1>Collaborative Style</h1>
-<p style="margin: 10px 0;">1. 팀원들이 하고자 하는 방향을 잡고 일을 완수할 수 있도록 조력.</p>
-<p style="margin: 10px 0;">2. 학생의 입장으로 서로에게 배우는 자세. </p>
-<p style="margin: 10px 0;">3. 서로의 의견을 존중하고 배려.</p>
-</div>
-</div>
 
 
 
 
-
-</body>
 
 </html>
