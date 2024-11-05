@@ -65,6 +65,7 @@
             $('#team-member-age').attr('value', getUser.age);
             $('#team-member-blog').attr('value', getUser.blog);
             $('#team-member-gender').attr('value', getUser.gender);
+            $("#team-member-intro").attr('value', getUser.intro);
             id = getUser.id;
         })
         //팀원 추가버튼
@@ -75,6 +76,7 @@
             let age = $("#team-member-age").val();
             let blog = $("#team-member-blog").val();
             let gender = $("#team-member-gender").val();
+            let intro = $("#team-member-intro").val();
 
 
 
@@ -85,6 +87,7 @@
                 "age": age,
                 "blog": blog,
                 "gender": gender,
+                "intro" : intro,
                 "id": create_id
             };
             await setDoc(doc(db, "teamdata", create_id.toString()), data)
@@ -104,6 +107,7 @@
             let age = $("#team-member-age").val();
             let blog = $("#team-member-blog").val();
             let gender = $("#team-member-gender").val();
+            let intro = $("#team-member-intro").val();
 
 
             if (id == 0) {
@@ -116,7 +120,8 @@
                     "age": age,
                     "blog": blog,
                     "gender": gender,
-                    "id": id
+                    "id": id,
+                    "intro": intro
                 };
                 await setDoc(doc(db, "teamdata", id.toString()), data)
                 .then(result =>
@@ -192,6 +197,10 @@
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="team-member-gender" placeholder="팀원 성별">
             <label for="floatingInput">팀원 성별</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="team-member-intro" placeholder="팀원 소개">
+            <label for="floatingInput">팀원 소개</label>
         </div>
         <div class="mybtn">
             <button type="button" class="btn btn-dark" id="adding">기록 하기</button>
