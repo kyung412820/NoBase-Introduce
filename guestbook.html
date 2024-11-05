@@ -172,7 +172,6 @@
             await addDoc(collection(db, "introduce"), doc);
             window.location.reload();
         })
-        // import { getDocs, collection, query, orderBy } from "firebase/firestore";
 
         let docs = await getDocs(query(collection(db, "introduce"), orderBy("date", "desc")));
         docs.forEach((doc) => {
@@ -183,8 +182,10 @@
             let date = row['date'];
             let content = row['content'];
 
-            const savedDate = date.toDate().toISOString().split('T')[0];
-            const savedTime = date.toDate().toISOString().split('T')[1].substring(0, 5);
+            // const date = new Date(seconds * 1000 + nanoseconds / 1_000_000);
+            const savedDate = date.toDate().toLocaleDateString('ko-KR');
+            const savedTime = date.toDate().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            // const savedTime = date.toDate().toISOString().split('T')[1].substring(0, 5);
 
             let temp_html = `
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
