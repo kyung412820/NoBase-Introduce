@@ -10,6 +10,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=Noto+Sans+KR:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
         body {
             font-family: "Noto Sans KR", sans-serif;
         }
@@ -20,7 +21,6 @@
 
             height: 250px;
 
-            /* 내용물을 정렬 */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -33,7 +33,6 @@
         .title {
             background-color: rgba(0, 0, 0, .125);
             padding: 1rem 0;
-            /* margin: auto auto auto 30em; */
             width: 200em;
 
             display: flex;
@@ -45,8 +44,6 @@
         #input-wrap {
             padding: 1rem;
             align-items: center;
-            /* background-color: green; */
-            /* width: 50rem; */
             display: flex;
             justify-content: center;
         }
@@ -55,24 +52,13 @@
             width: 100%;
         }
 
-        .input-group {
-            /* align-items: center; */
-        }
-
         .button {
-            /* background-color: rgba(0, 0, 0, .125); */
             display: flex;
             justify-content: center;
         }
 
-        #postingbtn {
-            /* flex: 0.5; */
-        }
-
         .colorbtn {
             display: block;
-            /* flex-direction: column; */
-            /* padding: 0 5rem; */
             height: 3rem;
             width: 3rem;
 
@@ -108,25 +94,14 @@
         #input-color {
             display: flex;
             flex-direction: row;
-            /* 세로로 정렬 */
             align-items: center;
-            /* 가로 중앙 정렬 */
             justify-content: center;
             gap: 2rem;
-            /* 버튼 간의 간격 */
         }
 
         #time {
             color: darkgray;
         }
-
-        .input-group-text {
-            /* color: white;
-            background-color: black; */
-        }
-
-        
-
     </style>
     <script type="module">
         // Firebase SDK 라이브러리 가져오기
@@ -159,14 +134,12 @@
         $("#postingbtn").click(async function () {
             const day = new Date();
 
-            // let color = $('#image').val();
             let name = $('#name').val();
             let content = $('#content').val();
             let doc = {
                 'color': color,
                 'name': name,
                 'date': day,
-                // 'date': "5D",
                 'content': content,
             };
             await addDoc(collection(db, "introduce"), doc);
@@ -182,10 +155,8 @@
             let date = row['date'];
             let content = row['content'];
 
-            // const date = new Date(seconds * 1000 + nanoseconds / 1_000_000);
             const savedDate = date.toDate().toLocaleDateString('ko-KR');
             const savedTime = date.toDate().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            // const savedTime = date.toDate().toISOString().split('T')[1].substring(0, 5);
 
             let temp_html = `
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
@@ -255,7 +226,6 @@
                     </div>
                 </div>
             </div>
-            <!-- 내용 -->
         </div>
     </div>
 </body>
