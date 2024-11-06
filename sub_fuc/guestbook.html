@@ -26,7 +26,7 @@
             align-items: center;
             justify-content: center;
             font-family: "Climate Crisis", sans-serif;
-            
+
             font-optical-sizing: auto;
             font-size: 120px;
             font-weight: 400;
@@ -96,22 +96,25 @@
         #c5 {
             background-color: white;
         }
-        .backbtn {
-            background-color: black;
-            color: white;
-            border: 2px solid white;
-            border-radius: 50px;
-            padding: 10px 20px;
-            width: 200px;
+
+        #backbtn-wrap {
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
+        }
+
+        .backbtn {
+            /* background-color: black; */
+            /* color: white; */
+            /* border-radius: 0.2rem; */
+            /* padding: 0.48rem 1rem; */
+            /* text-align: center; */
+            /* display: inline-block; */
+            /* align-items: center; */
+            /* justify-content: center; */
+            margin: 1rem auto;
         }
 
         #input-color {
-            
+
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -214,8 +217,12 @@
 <body>
     <!-- 헤더 -->
     <div class="mytitle"><span class="title">Guest Book<span>
-    </div></div>
-    <div id="backbtn" class="backbtn">돌아가기</div>
+    </div>
+    </div>
+    <div id="backbtn-wrap">
+        <button id="backbtn" type="button" class="btn btn-dark backbtn">돌아가기</button>
+    </div>
+
     <!-- 리스트 -->
     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
         <div id="list" class="list-group">
