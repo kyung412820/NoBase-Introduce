@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>나만의 추억앨범</title>
+    <pw>나만의 추억앨범</pw>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -21,7 +21,7 @@
                 "YEAR" 2020;
         } */
 
-        .mytitle {
+        .mypw {
             color: white;
             height: 300px;
             display: flex;
@@ -70,7 +70,7 @@
             background-size: cover;
         }
 
-        .mytitle>button {
+        .mypw>button {
             width: 150px;
             height: 50px;
             background-color: transparent;
@@ -86,7 +86,10 @@
 
         /* 입력 박스 스타일 */
         .mypostingbox {
-            width: auto;
+            flex: 1;
+            /* mypostingbox가 남은 공간을 차지하도록 설정 */
+            max-width: 300px;
+            /* 크기 제한 */
             /* 고정된 너비 설정 */
             padding: 20px;
             /* 내부 여백 */
@@ -96,11 +99,15 @@
             /* 모서리 둥글게 */
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             /* 그림자 */
+            border-radius: 10px;
+            border: 2px solid black;
         }
 
         /* 카드 스타일 */
         .mycards {
-            flex: 1;
+            flex: 2;
+            /* mycards가 더 많은 공간을 차지하도록 설정 */
+            width: 100%;
             /* 남은 공간을 모두 차지하도록 설정 */
             max-height: 400px;
             /* 고정된 높이 설정 */
@@ -133,10 +140,9 @@
         }
 
         .semimypostingbox {
-            background-color: green;
             color: white;
 
-            height: 400px;
+            height: 49.3%;
 
             /* 내용물을 정렬 */
             display: flex;
@@ -161,6 +167,33 @@
             background-size: cover;
         }
 
+        .semimessagebox {
+            color: white;
+
+            height: 49.3%;
+
+            /* 내용물을 정렬 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            /* 공백 간격 조정 */
+            font-weight: bold;
+            font-size: 25px;
+            text-align: center;
+
+            width: 99%;
+            margin: 20px; 
+            /* 너비 조정 */
+            padding: 20px;
+            /* 패딩 설정 */
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px black;
+
+            background-color: black;
+            background-position: center;
+            background-size: cover;
+        }
         .mybtn {
             display: flex;
             flex-direction: row;
@@ -170,26 +203,26 @@
             margin-top: 10px;
         }
 
-        .paceimage {
+        .pacename {
             display: flex;
             justify-content: space-around;
             /* Or any alignment you prefer */
             margin: 20px 0;
-            /* Adjust the spacing around the images */
+            /* Adjust the spacing around the names */
         }
 
-        .paceimage img {
+        .pacename img {
             width: 150px;
             /* Set desired width */
             height: 150px;
             /* Maintain aspect ratio */
             border-radius: 10px;
-            /* Optional: adds rounded corners to images */
+            /* Optional: adds rounded corners to names */
             transition: transform 0.2s;
             /* Adds a hover effect */
         }
 
-        .paceimage img:hover {
+        .pacename img:hover {
             transform: scale(1.5);
             /* Scale up on hover */
         }
@@ -204,6 +237,63 @@
         .mybtn>button {
             margin-right: 10px;
         }
+
+        /* post-entry의 전체 레이아웃 설정 */
+        .post-entry {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            width: 100vw;
+        }
+
+        /* 이름, PW를 수평으로 배치 */
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* 이름 */
+        .post-name {
+            color: #333;
+        }
+
+        /* PW */
+        .post-pw {
+            color: #555;
+        }
+
+        .post-date {
+            font-size: 1.2rem;
+            /* 또는 원하는 크기로 조정 */
+        }
+
+        /* 내용 */
+        .post-content p {
+            font-size: 1rem;
+            color: #333;
+            margin: 0;
+        }
+
+        .post-divider {
+            border: 0;
+            height: 1px;
+            background-color: #ddd;
+            /* 원하는 색상 */
+            margin: 10px 0;
+            /* 상하 여백 */
+            background-color: #808080;
+            /* 회색 색상 */
+        }
+
+        /* 날짜 */
+        .post-footer {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #777;
+        }
     </style>
     <script type="module">
         // Firebase SDK 라이브러리 가져오기
@@ -214,78 +304,80 @@
 
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
-            apiKey: "AIzaSyCz-aTF0iQvQilKJyrTHQxg1T2X_13trtw",
-            authDomain: "sparta-49ce5.firebaseapp.com",
-            projectId: "sparta-49ce5",
-            storageBucket: "sparta-49ce5.appspot.com",
-            messagingSenderId: "819019173056",
-            appId: "1:819019173056:web:e47a0781c0b38268923125",
-            measurementId: "G-0NFWX91DD1"
+            apiKey: "AIzaSyCBuUAkXKAl5c34qrQQ28lNjKu4WPqdz6A",
+            authDomain: "test-2a0d4.firebaseapp.com",
+            projectId: "test-2a0d4",
+            storageBucket: "test-2a0d4.firebasestorage.app",
+            messagingSenderId: "481000273932",
+            appId: "1:481000273932:web:55aab15f3a157934799629",
+            measurementId: "G-DHQ744VQ07"
         };
 
         // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+
         $("#postingbtn").click(async function () {
-            let image = $('#image').val();
-            let title = $('#title').val();
+            let name = $('#name').val();
+            let pw = $('#pw').val();
             let content = $('#content').val();
-            let date = $('#date').val();
+            let date = new Date().toISOString();
 
-            let doc = {
-                'image': image,
-                'title': title,
-                'content': content,
-                'date': date
-            };
-            await addDoc(collection(db, "albums"), doc);
-            alert('저장완료!');
-            window.location.reload();
+            // Firestore에서 비밀번호 가져오기
+            let passwordDoc = await getDocs(collection(db, "password"));
+
+            // 비밀번호가 포함된 첫 번째 문서 가져오기
+            let storedPw = '';
+            passwordDoc.forEach(doc => {
+                storedPw = doc.data().password; // 비밀번호 가져오기
+            });
+            console.log('Stored Password:', storedPw);
+            // 비밀번호가 '1'인지 확인
+            if (pw === storedPw) {
+                let doc = {
+                    'name': name,
+                    'pw': pw,
+                    'content': content,
+                    'date': date
+                };
+
+                await addDoc(collection(db, "postmessage"), doc);
+                alert('저장완료!');
+                window.location.reload();
+            } else {
+                alert('비밀번호를 확인해 주세요');
+            }
         })
 
-        $("#savebtn").click(async function () {
-            $('#postingbox').toggle();
-        })
-
-
-        let url = "http://spartacodingclub.shop/sparta_api/seoulair";
-        fetch(url).then(res => res.json()).then(data => {
-            let mise = data['RealtimeCityAir']['row'][0]['IDEX_NM']
-            $('#msg').text(mise)
-        })
-
-        let docs = await getDocs(collection(db, "albums"));
+        let docs = await getDocs(collection(db, "postmessage"));
         docs.forEach((doc) => {
             let row = doc.data();
 
-            let image = row['image'];
-            let title = row['title'];
+            let name = row['name'];
+            let pw = row['pw'];
             let content = row['content'];
             let date = row['date'];
 
             let temp_html = `
-            <div class="col">
-                <div class="card h-100">
-                    <img src="${image}"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${title}</h5>
-                        <p class="card-text">${content}</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">${date}</small>
-                    </div>
-                </div>
-            </div>`;
-            $('#card').append(temp_html);
+        <div class="post-entry">
+            <div class="post-header">
+                <span class="post-name">${name}</span>
+                <p>${date}</p>
+            </div>
+            <hr class="post-divider"> 
+            <div class="post-footer">
+                <small class="post-date"">${content}</small>
+            </div>
+        </div>`;
+            $('#message').append(temp_html);
         });
 
     </script>
 </head>
 
 <body>
-    <div class="mytitle">
+    <div class="mypw">
         <p style="font-size: 200px; font-family: 'Climate Crisis', sans-serif;
             font-optical-sizing: auto;
             font-weight: 400;
@@ -321,7 +413,7 @@
         <p style="margin: 5px 0;">3. 팀활동을 통한 팀워크 개발</p>
     </div>
 
-    <div class="paceimage">
+    <div class="pacename">
         <a href="per_introduce\intro_kunghun.html">
             <img src="pictures\kunghun.jpg" alt="Team Member 1" style="width: 100px; height: auto;">
         </a>
@@ -339,8 +431,7 @@
         </a>
     </div>
 
-    <div >
-
+    <div>
         <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
             <h1 style="font-size: 40px; font-family: 'Climate Crisis', sans-serif;
             font-optical-sizing: auto;
@@ -363,7 +454,42 @@
             <p style="margin: 10px 0;">4. TIL 남은날까지 맨날 쓰기 </p>
             <p style="margin: 10px 0;">5. 1일 1TIL, 1알고리즘</p>
         </div>
+        
+        <div class="semimessagebox" style="display: block; font-size: 40px; font-family: 'Climate Crisis', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;">Community</div>
+        <div style="border: 2px solid black; padding:1%; border-radius: 20px; gap: 30px; display: flex; ">
+            <div class="mypostingbox" id="postingbox">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="name" placeholder="name@example.com"
+                        style="border-radius: 50px; color: white; background-color: black;">
+                    <label for="floatingInput" style="color: #8b8b8b;">닉네임</label>
+                </div>
+                <div class="form-floating mb-3" id="postingbox">
+                    <input type="email" class="form-control" id="pw" placeholder="name@example.com"
+                        style="border-radius: 50px; color: white; background-color: black;">
+                    <label for="floatingInput" style="color: #8b8b8b;">PW</label>
+                </div>
+                <div class="form-floating" id="postingbox">
+                    <input type="email" class="form-control" id="content" placeholder="name@example.com"
+                        style="border-radius: 50px; color: white; background-color: black;">
+                    <label for="floatingTextarea" style="color: #8b8b8b;">내용</label>
+                </div>
+                <div class="mybtn">
+                    <button id="postingbtn" type="button" class="btn btn-dark"
+                        style="background-color: black; color: white; border: 2px solid white; padding: 10px 20px; border-radius: 5px;">기록하기</button>
+                </div>
+            </div>
+            <div class="mycards">
+                <div id="message" class="row row-cols-1 row-cols-md-4 g-4">
+                </div>
+            </div>
+        </div>
+    </div>
 
+
+    </div>
     </div>
 </body>
 

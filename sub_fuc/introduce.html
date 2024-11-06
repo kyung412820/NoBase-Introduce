@@ -1,262 +1,269 @@
-<<<<<<< HEAD:sub_fuc/introduce.html
-<!doctype html>
-<html lang="en">
+<<<<<<< HEAD:sub_fuc/introduce.html <!doctype html>
+    <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>나만의 추억앨범</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>나만의 추억앨범</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1990&family=Noto+Sans+KR:wght@100..900&display=swap');
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1990&family=Noto+Sans+KR:wght@100..900&display=swap');
 
 
-        * {
-            font-family: "Noto Sans KR", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: weight;
-            font-style: normal;
+            * {
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: weight;
+                font-style: normal;
 
-        }
+            }
 
-        .mytitle {
-            font-family: "Climate Crisis", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            font-variation-settings:
-                "YEAR" 1979;
-            background-color: green;
-            color: white;
+            .mytitle {
+                font-family: "Climate Crisis", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+                font-variation-settings:
+                    "YEAR" 1979;
+                background-color: green;
+                color: white;
 
-            height: 250px;
+                height: 250px;
 
-            /* 내용물을 정렬 */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            padding-left: 50px;
-            /* 왼쪽 여백 */
-            font-weight: bold;
+                /* 내용물을 정렬 */
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding-left: 50px;
+                /* 왼쪽 여백 */
+                font-weight: bold;
 
-            background-color: black;
-            background-position: center;
-            background-size: cover;
-        }
-        .style{
-            border: 6px solid; text-align: center; font-size: 30px; font-weight: bold; border-color: black; color: black; margin: 20px auto 20px auto;
-            font-family: "Climate Crisis", serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            font-variation-settings:
-                "YEAR" 1990;
+                background-color: black;
+                background-position: center;
+                background-size: cover;
+            }
 
-        }
-        .mybottom {
-            background-color: black;
+            .style {
+                border: 6px solid;
+                text-align: center;
+                font-size: 30px;
+                font-weight: bold;
+                border-color: black;
+                color: black;
+                margin: 20px auto 20px auto;
+                font-family: "Climate Crisis", serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+                font-variation-settings:
+                    "YEAR" 1990;
+
+            }
+
+            .mybottom {
+                background-color: black;
                 /* 배경색을 검은색으로 설정 */
-            color: white;
+                color: white;
 
-            height: 200px;
+                height: 200px;
 
-            /* 내용물을 정렬 */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            padding-left: 50px;
-            /* 왼쪽 여백 */
-            font-weight: bold;
+                /* 내용물을 정렬 */
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding-left: 50px;
+                /* 왼쪽 여백 */
+                font-weight: bold;
 
-            bottom: 0;
-            /* 하단에 배치 */
-            left: 0;
-            /* 왼쪽에 배치 */
-            right: 0;
-            /* 오른쪽으로 꽉 차게 */
+                bottom: 0;
+                /* 하단에 배치 */
+                left: 0;
+                /* 왼쪽에 배치 */
+                right: 0;
+                /* 오른쪽으로 꽉 차게 */
 
 
-            background-color: black;
-            background-position: center;
-            background-size: cover;
-        }
+                background-color: black;
+                background-position: center;
+                background-size: cover;
+            }
 
-        .mytitle>button {
-            width: 150px;
-            height: 50px;
-            background-color: transparent;
-            border: none;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
+            .mytitle>button {
+                width: 150px;
+                height: 50px;
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                border-radius: 5px;
 
-            border: 1px solid white;
-            margin-top: 20px;
-        }
+                border: 1px solid white;
+                margin-top: 20px;
+            }
 
-        /* 입력 박스 스타일 */
-        .mypostingbox {
-            width: auto;
-            /* 고정된 너비 설정 */
-            padding: 20px;
-            /* 내부 여백 */
-            border: 1px solid #ccc;
-            /* 테두리 */
-            border-radius: 5px;
-            /* 모서리 둥글게 */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            /* 그림자 */
-        }
+            /* 입력 박스 스타일 */
+            .mypostingbox {
+                width: auto;
+                /* 고정된 너비 설정 */
+                padding: 20px;
+                /* 내부 여백 */
+                border: 1px solid #ccc;
+                /* 테두리 */
+                border-radius: 5px;
+                /* 모서리 둥글게 */
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                /* 그림자 */
+            }
 
-        /* 카드 스타일 */
-        .mycards {
-            flex: 1;
-            /* 남은 공간을 모두 차지하도록 설정 */
-            max-height: 400px;
-            /* 고정된 높이 설정 */
-            overflow-y: auto;
-            /* 세로 스크롤 가능 */
-            padding: 10px;
-            /* 내부 여백 */
-            border: 1px solid #ccc;
-            /* 테두리 */
-            border-radius: 5px;
-            /* 모서리 둥글게 */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            /* 그림자 */
-        }
+            /* 카드 스타일 */
+            .mycards {
+                flex: 1;
+                /* 남은 공간을 모두 차지하도록 설정 */
+                max-height: 400px;
+                /* 고정된 높이 설정 */
+                overflow-y: auto;
+                /* 세로 스크롤 가능 */
+                padding: 10px;
+                /* 내부 여백 */
+                border: 1px solid #ccc;
+                /* 테두리 */
+                border-radius: 5px;
+                /* 모서리 둥글게 */
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                /* 그림자 */
+            }
 
-        /* 카드의 이미지 크기 조정 */
-        .card-img-top {
-            height: 200px;
-            /* 카드 이미지 높이 고정 */
-            object-fit: cover;
-            /* 비율 유지하며 자르기 */
-        }
+            /* 카드의 이미지 크기 조정 */
+            .card-img-top {
+                height: 200px;
+                /* 카드 이미지 높이 고정 */
+                object-fit: cover;
+                /* 비율 유지하며 자르기 */
+            }
 
-        .mainmypostingbox {
-            width: auto;
-            margin: 20px auto;
-            padding: 20px 20px 20px 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 3px 0px black;
-        }
+            .mainmypostingbox {
+                width: auto;
+                margin: 20px auto;
+                padding: 20px 20px 20px 20px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 3px 0px black;
+            }
 
-        .semimypostingbox {
-            background-color: green;
-            color: white;
+            .semimypostingbox {
+                background-color: green;
+                color: white;
 
-            height: 300px;
+                height: 300px;
 
-            /* 내용물을 정렬 */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 10px;
-            /* 공백 간격 조정 */
-            font-weight: bold;
-            font-size: 25px;
+                /* 내용물을 정렬 */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 10px;
+                /* 공백 간격 조정 */
+                font-weight: bold;
+                font-size: 25px;
 
-            width: 45%;
-            /* 너비 조정 */
-            margin: 20px 30px 100px 30px;
-            /* 위, 오른쪽, 아래, 왼쪽 여백 */
-            padding: 20px;
-            /* 패딩 설정 */
-            border-radius: 5px;
-            box-shadow: 0px 0px 3px 0px black;
+                width: 45%;
+                /* 너비 조정 */
+                margin: 20px 30px 100px 30px;
+                /* 위, 오른쪽, 아래, 왼쪽 여백 */
+                padding: 20px;
+                /* 패딩 설정 */
+                border-radius: 5px;
+                box-shadow: 0px 0px 3px 0px black;
 
-            background-color: black;
-            background-position: center;
-            background-size: cover;
-        }
+                background-color: black;
+                background-position: center;
+                background-size: cover;
+            }
 
-        .mybtn {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
+            .mybtn {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
 
-            margin-top: 10px;
-        }
+                margin-top: 10px;
+            }
 
-        .fade-in {
-            opacity: 0;
-            /* 초기 투명도 설정 */
-            transition: opacity 1s ease-in;
-            /* 부드러운 전환 */
-        }
+            .fade-in {
+                opacity: 0;
+                /* 초기 투명도 설정 */
+                transition: opacity 1s ease-in;
+                /* 부드러운 전환 */
+            }
 
-        .mybtn>button {
-            margin-right: 10px;
-        }
-    </style>
-    <script type="module">
-        // Firebase SDK 라이브러리 가져오기
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+            .mybtn>button {
+                margin-right: 10px;
+            }
+        </style>
+        <script type="module">
+            // Firebase SDK 라이브러리 가져오기
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+            import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+            import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+            import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyCz-aTF0iQvQilKJyrTHQxg1T2X_13trtw",
-            authDomain: "sparta-49ce5.firebaseapp.com",
-            projectId: "sparta-49ce5",
-            storageBucket: "sparta-49ce5.appspot.com",
-            messagingSenderId: "819019173056",
-            appId: "1:819019173056:web:e47a0781c0b38268923125",
-            measurementId: "G-0NFWX91DD1"
-        };
-
-        // Firebase 인스턴스 초기화
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        $("#postingbtn").click(async function () {
-            let image = $('#image').val();
-            let title = $('#title').val();
-            let content = $('#content').val();
-            let date = $('#date').val();
-
-            let doc = {
-                'image': image,
-                'title': title,
-                'content': content,
-                'date': date
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyCBuUAkXKAl5c34qrQQ28lNjKu4WPqdz6A",
+                authDomain: "test-2a0d4.firebaseapp.com",
+                projectId: "test-2a0d4",
+                storageBucket: "test-2a0d4.firebasestorage.app",
+                messagingSenderId: "481000273932",
+                appId: "1:481000273932:web:55aab15f3a157934799629",
+                measurementId: "G-DHQ744VQ07"
             };
-            await addDoc(collection(db, "albums"), doc);
-            alert('저장완료!');
-            window.location.reload();
-        })
 
-        $("#savebtn").click(async function () {
-            $('#postingbox').toggle();
-        })
+            // Firebase 인스턴스 초기화
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+
+            $("#postingbtn").click(async function () {
+                let image = $('#image').val();
+                let title = $('#title').val();
+                let content = $('#content').val();
+                let date = $('#date').val();
+
+                let doc = {
+                    'image': image,
+                    'title': title,
+                    'content': content,
+                    'date': date
+                };
+                await addDoc(collection(db, "albums"), doc);
+                alert('저장완료!');
+                window.location.reload();
+            })
+
+            $("#savebtn").click(async function () {
+                $('#postingbox').toggle();
+            })
 
 
-        let url = "http://spartacodingclub.shop/sparta_api/seoulair";
-        fetch(url).then(res => res.json()).then(data => {
-            let mise = data['RealtimeCityAir']['row'][0]['IDEX_NM']
-            $('#msg').text(mise)
-        })
+            let url = "http://spartacodingclub.shop/sparta_api/seoulair";
+            fetch(url).then(res => res.json()).then(data => {
+                let mise = data['RealtimeCityAir']['row'][0]['IDEX_NM']
+                $('#msg').text(mise)
+            })
 
-        let docs = await getDocs(collection(db, "albums"));
-        docs.forEach((doc) => {
-            let row = doc.data();
+            let docs = await getDocs(collection(db, "albums"));
+            docs.forEach((doc) => {
+                let row = doc.data();
 
-            let image = row['image'];
-            let title = row['title'];
-            let content = row['content'];
-            let date = row['date'];
+                let image = row['image'];
+                let title = row['title'];
+                let content = row['content'];
+                let date = row['date'];
 
-            let temp_html = `
+                let temp_html = `
             <div class="col">
                 <div class="card h-100">
                     <img src="${image}"
@@ -270,143 +277,142 @@
                     </div>
                 </div>
             </div>`;
-            $('#card').append(temp_html);
-        });
+                $('#card').append(temp_html);
+            });
 
-    </script>
-</head>
+        </script>
+    </head>
 
-<body>
-    <div class="mytitle">
-        <h1 style="font-size: 120px; font-family: 'Climate Crisis', sans-serif;
+    <body>
+        <div class="mytitle">
+            <h1 style="font-size: 120px; font-family: 'Climate Crisis', sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
         ">From Base</h1>
-    </div>
-
-    <p class ="style">
-        Goal : 비전공자도 할 수 있다는 것을 보여주는 것
-    </p>
-
-    <div class="mainmypostingbox" id="postingbox">
-        <h1>Team Goal</h1>
-        <p style="margin: 5px 0;">1. javascript, http, css를 이용한 기본적인 웹페이지 개설 능력 강화</p>
-        <p style="margin: 5px 0;">2. Firebase를 통한 Api의 사용 이해</p>
-        <p style="margin: 5px 0;">3. 팀활동을 통한 팀워크 개발</p>
-    </div>
-
-
-    <div>
-        <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
-            <h1>Our Strength</h1>
-            <p style="margin: 10px 0;">1. 비전공 집단인 만큼.</p>
-            <p style="margin: 10px 0;">2. 무언갈 도전하는 것을 즐깁니다.</p>
-            <p style="margin: 10px 0;">3. 다양한 팀 활동에 적극적으로 참여할 것입니다.</p>
         </div>
-        <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
-            <h1>Collaborative Style</h1>
-            <p style="margin: 10px 0;">1. 팀원들이 하고자 하는 방향을 잡고 일을 완수할 수 있도록 조력</p>
-            <p style="margin: 10px 0;">2. 학생의 입장으로 서로에게 배우는 자세</p>
-            <p style="margin: 10px 0;">3. 서로의 의견을 존중하고 배려</p>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="mypostingbox" id="postingbox">
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="image" placeholder="name@example.com">
-                <label for="floatingInput">앨범 이미지</label>
+        <p class="style">
+            Goal : 비전공자도 할 수 있다는 것을 보여주는 것
+        </p>
+
+        <div class="mainmypostingbox" id="postingbox">
+            <h1>Team Goal</h1>
+            <p style="margin: 5px 0;">1. javascript, http, css를 이용한 기본적인 웹페이지 개설 능력 강화</p>
+            <p style="margin: 5px 0;">2. Firebase를 통한 Api의 사용 이해</p>
+            <p style="margin: 5px 0;">3. 팀활동을 통한 팀워크 개발</p>
+        </div>
+
+
+        <div>
+            <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
+                <h1>Our Strength</h1>
+                <p style="margin: 10px 0;">1. 비전공 집단인 만큼.</p>
+                <p style="margin: 10px 0;">2. 무언갈 도전하는 것을 즐깁니다.</p>
+                <p style="margin: 10px 0;">3. 다양한 팀 활동에 적극적으로 참여할 것입니다.</p>
             </div>
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="title" placeholder="name@example.com">
-                <label for="floatingInput">앨범 제목</label>
-            </div>
-            <div class="form-floating">
-                <input type="email" class="form-control" id="content" placeholder="name@example.com">
-                <label for="floatingTextarea">앨범 내용</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="date" placeholder="name@example.com">
-                <label for="floatingInput">앨범 날짜</label>
-            </div>
-            <div class="mybtn">
-                <button id="postingbtn" type="button" class="btn btn-dark">기록하기</button>
-                <button type="button" class="btn btn-outline-dark">닫기</button>
+            <div class="semimypostingbox" id="postingbox" style="display: inline-block;">
+                <h1>Collaborative Style</h1>
+                <p style="margin: 10px 0;">1. 팀원들이 하고자 하는 방향을 잡고 일을 완수할 수 있도록 조력</p>
+                <p style="margin: 10px 0;">2. 학생의 입장으로 서로에게 배우는 자세</p>
+                <p style="margin: 10px 0;">3. 서로의 의견을 존중하고 배려</p>
             </div>
         </div>
 
-        <div class="mycards">
-            <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="data:image/jpeg;base64,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"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">앨범 제목</h5>
-                            <p class="card-text">앨범 내용</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">앨범 날짜</small>
+        <div class="container">
+            <div class="mypostingbox" id="postingbox">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="image" placeholder="name@example.com">
+                    <label for="floatingInput">앨범 이미지</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="title" placeholder="name@example.com">
+                    <label for="floatingInput">앨범 제목</label>
+                </div>
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="content" placeholder="name@example.com">
+                    <label for="floatingTextarea">앨범 내용</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="date" placeholder="name@example.com">
+                    <label for="floatingInput">앨범 날짜</label>
+                </div>
+                <div class="mybtn">
+                    <button id="postingbtn" type="button" class="btn btn-dark">기록하기</button>
+                    <button type="button" class="btn btn-outline-dark">닫기</button>
+                </div>
+            </div>
+
+            <div class="mycards">
+                <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="data:image/jpeg;base64,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"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">앨범 제목</h5>
+                                <p class="card-text">앨범 내용</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">앨범 날짜</small>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- 추가 카드 -->
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://image.dongascience.com/Photo/2023/07/a6e03b09c37312988aad4b5657ecbc75.jpeg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">앨범 제목</h5>
-                            <p class="card-text">앨범 내용</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">앨범 날짜</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://img.hankyung.com/photo/201802/AA.15897523.1.jpg" class="card-img-top"
-                            alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">앨범 제목</h5>
-                            <p class="card-text">앨범 내용</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">앨범 날짜</small>
+                    <!-- 추가 카드 -->
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://image.dongascience.com/Photo/2023/07/a6e03b09c37312988aad4b5657ecbc75.jpeg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">앨범 제목</h5>
+                                <p class="card-text">앨범 내용</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">앨범 날짜</small>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://external-preview.redd.it/XYSWEaOuYkcizsUSm3DO45aQFYgUwASgH-7KsnJqBfY.png?format=pjpg&auto=webp&s=d683b73708b501a7e7dd2b24f23e4d7188d6cc72"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">앨범 제목</h5>
-                            <p class="card-text">앨범 내용</p>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://img.hankyung.com/photo/201802/AA.15897523.1.jpg" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">앨범 제목</h5>
+                                <p class="card-text">앨범 내용</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">앨범 날짜</small>
+                            </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted">앨범 날짜</small>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://external-preview.redd.it/XYSWEaOuYkcizsUSm3DO45aQFYgUwASgH-7KsnJqBfY.png?format=pjpg&auto=webp&s=d683b73708b501a7e7dd2b24f23e4d7188d6cc72"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">앨범 제목</h5>
+                                <p class="card-text">앨범 내용</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">앨범 날짜</small>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="mybottom">
-        <h1>팀 노션</h1>
-        <p style="margin: 5px 0;">
-            <a href="https://www.notion.so/teamsparta/NoBase-1332dc3ef51480a88426dec85549a316" target="_blank"
-                style="color: white; text-decoration: underline;">
-                https://www.notion.so/teamsparta/NoBase-1332dc3ef51480a88426dec85549a316
-            </a>
+        <div class="mybottom">
+            <h1>팀 노션</h1>
+            <p style="margin: 5px 0;">
+                <a href="https://www.notion.so/teamsparta/NoBase-1332dc3ef51480a88426dec85549a316" target="_blank"
+                    style="color: white; text-decoration: underline;">
+                    https://www.notion.so/teamsparta/NoBase-1332dc3ef51480a88426dec85549a316
+                </a>
             <p style="border: 1px solid #ccc; padding: 10px; font-size: 12px; display: inline-block;">
                 현재 서울의 미세먼지 : <span id="msg">나쁨</span>
             </p>
-        </p>
-    </div>
+            </p>
+        </div>
 
-</body>
-
+    </body>
