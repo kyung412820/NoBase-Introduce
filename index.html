@@ -203,6 +203,13 @@
             margin-top: 10px;
         }
 
+        .mytab {
+
+            font-weight: bold;          /* 글자 굵게 */
+            color: black;               /* 글자 색을 검은색으로 설정 */
+            font-size: 16px;            /* 글자 크기 설정 */
+        }
+
         .pacename {
             display: flex;
             justify-content: space-around;
@@ -384,22 +391,22 @@
             font-style: normal;">No Base</p>
     </div>
 
-    <div class="mytab">
+    <div>
         <button onclick="location.href='sub_fuc/introduce.html'"
-            style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
-            팀 소개
+        class="mytab">
+            Introduce
         </button>
         <button onclick="location.href='sub_fuc/guestbook.html'"
-            style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
-            방명록
+            class="mytab">
+            GuestBook
         </button>
         <button onclick="location.href='sub_fuc/member_settings.html'"
-            style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
-            팀 수정
+            class="mytab">
+            Member Settings
         </button>
         <button onclick="location.href='sub_fuc/team_train.html'"
-            style="width: 100px; height: auto; border: none; background: none; padding: 10px; font-size: 16px;">
-            학습 기록
+            class="mytab">
+            Train Record
         </button>
     </div>
 
