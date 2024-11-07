@@ -97,13 +97,13 @@
                 "intro": intro,
                 "id": create_id
             };
-            if (create_id <= 10) {
+            if (create_id <= 9) {
                 await setDoc(doc(db, "teamdata", create_id.toString()), data)
                     .then(result => alert("추가되었습니다."))
                     .catch(result => alert("추가에 실패했습니다."));
             }
             else {
-                alert("최대 10명까지 등록이 가능합니다.");
+                alert("최대 9명까지 등록이 가능합니다.");
             }
             location.reload();
         });
