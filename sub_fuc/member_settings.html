@@ -18,13 +18,13 @@
 
         // Firebase 구성 정보 설정
         const firebaseConfig = {
-            apiKey: "AIzaSyCidD4TqbOGQXZghpEkQq-0EhsHiALEkfc",
-            authDomain: "sparta-14717.firebaseapp.com",
-            projectId: "sparta-14717",
-            storageBucket: "sparta-14717.firebasestorage.app",
-            messagingSenderId: "1060049658038",
-            appId: "1:1060049658038:web:f247e968382ebb23bb8617",
-            measurementId: "G-51SZNG2G2T"
+            apiKey: "AIzaSyCBuUAkXKAl5c34qrQQ28lNjKu4WPqdz6A",
+            authDomain: "test-2a0d4.firebaseapp.com",
+            projectId: "test-2a0d4",
+            storageBucket: "test-2a0d4.firebasestorage.app",
+            messagingSenderId: "481000273932",
+            appId: "1:481000273932:web:55aab15f3a157934799629",
+            measurementId: "G-DHQ744VQ07"
         };
 
 
@@ -42,6 +42,7 @@
         const db = getFirestore(app);
         let create_id = 0;
         let id = 0;
+        let EndID = 0;
         const querySnapshot = await getDocs(collection(db, "teamdata"));
 
 
@@ -50,12 +51,13 @@
 
                 let inner_html = `<option value="${doc.data().id}">${doc.data().name}</option>`
                 $("#editselect").append(inner_html);
+                EndID = doc.data().id;
                 create_id = doc.data().id;
-                console.log(doc.data().id);
             }
+
         })
 
-        //선택메뉴에 팀원목록 춛가하기
+        //선택메뉴에 팀원목록 추가하기
         $("#editselect").change(async function () {
             console.log($(this).val());
             let getUserdata = await getDoc(doc(db, "teamdata", $(this).val()));
@@ -70,34 +72,39 @@
         })
         //팀원 추가버튼
         $("#adding").click(async function () {
-
-            let image = $("#team-member-image").val();
-            let name = $("#team-member-name").val();
-            let age = $("#team-member-age").val();
-            let blog = $("#team-member-blog").val();
-            let gender = $("#team-member-gender").val();
-            let intro = $("#team-member-intro").val();
+            
 
 
+                let image = $("#team-member-image").val();
+                let name = $("#team-member-name").val();
+                let age = $("#team-member-age").val();
+                let blog = $("#team-member-blog").val();
+                let gender = $("#team-member-gender").val();
+                let intro = $("#team-member-intro").val();
 
-            create_id = create_id + 1;
-            let data = {
-                "image": image,
-                "name": name,
-                "age": age,
-                "blog": blog,
-                "gender": gender,
-                "intro" : intro,
-                "id": create_id
-            };
-            await setDoc(doc(db, "teamdata", create_id.toString()), data)
-            .then(result => alert("추가되었습니다."))
-            .catch(result => alert("추가에 실채했습니다."));
+
+
+                create_id = create_id + 1;
+                let data = {
+                    "image": image,
+                    "name": name,
+                    "age": age,
+                    "blog": blog,
+                    "gender": gender,
+                    "intro": intro,
+                    "id": create_id
+                };
+                if(create_id<=10){
+                await setDoc(doc(db, "teamdata", create_id.toString()), data)
+                    .then(result => alert("추가되었습니다."))
+                    .catch(result => alert("추가에 실패했습니다."));}
+                    else{
+                        alert("최대 10명까지 등록이 가능합니다.");
+                    }
             location.reload();
-
         });
 
-       //팀원 수정 버튼
+        //팀원 수정 버튼
         $("#editing").click(async function () {
 
 
@@ -124,10 +131,10 @@
                     "intro": intro
                 };
                 await setDoc(doc(db, "teamdata", id.toString()), data)
-                .then(result =>
-                    alert("수정에 성공했습니다")
-                ).catch(result => alert("수정에 실패했습니다.")
-                )
+                    .then(result =>
+                        alert("수정에 성공했습니다")
+                    ).catch(result => alert("수정에 실패했습니다.")
+                    )
                 location.reload();
             }
 
@@ -137,8 +144,34 @@
             if (id == 0) {
                 alert("삭제할 항목이 선택되지 않았습니다.")
             } else {
-                await deleteDoc(doc(db, "teamdata", id.toString())).then(
-                    result => alert("삭제되었습니다.")
+                console.log("id: " + id);
+                console.log("endid: " + EndID);
+                let deletechange = id
+
+                //삭제할 위치로 다음 데이터 덮어 씌우기
+                for (deletechange = id; deletechange <= EndID - 1; deletechange++) {
+                    console.log(deletechange);
+                    let getUserdata = await getDoc(doc(db, "teamdata", (deletechange + 1).toString()));
+                    let userdataid = getUserdata.data().id - 1;
+                    let data = {
+                        "image": getUserdata.data().image,
+                        "name": getUserdata.data().name,
+                        "age": getUserdata.data().age,
+                        "blog": getUserdata.data().blog,
+                        "gender": getUserdata.data().gender,
+                        "intro": getUserdata.data().intro,
+                        "id": userdataid
+                    }
+                    //맨 마지막 데이터 삭제
+                    await setDoc(doc(db, "teamdata", deletechange.toString()), data);
+
+
+                }
+                await deleteDoc(doc(db, "teamdata", EndID.toString())).then(
+                    result => {
+                        alert("삭제되었습니다.");
+                    }
+
                 ).catch(result => alert("삭제에 실패했습니다."));
                 location.reload();
             }
@@ -148,6 +181,7 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Climate+Crisis&display=swap');
+
         .mypostingbox {
             width: 1500px;
             margin: 30px auto 0px auto;
@@ -171,13 +205,15 @@
         .form-select {
             margin-bottom: 15px;
         }
+
         .mytitle {
             color: white;
             height: 300px;
             display: flex;
             flex-direction: column;
-            align-items: center;      /* 수평 중앙 정렬 */
-            justify-content: center;  
+            align-items: center;
+            /* 수평 중앙 정렬 */
+            justify-content: center;
             font-size: 120px;
             /* 크기를 줄여보세요 */
             font-family: "Playfair Display", serif;

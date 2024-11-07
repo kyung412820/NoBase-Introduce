@@ -182,7 +182,7 @@
             text-align: center;
 
             width: 99%;
-            margin: 20px; 
+            margin: 20px;
             /* 너비 조정 */
             padding: 20px;
             /* 패딩 설정 */
@@ -193,6 +193,7 @@
             background-position: center;
             background-size: cover;
         }
+
         .mybtn {
             display: flex;
             flex-direction: row;
@@ -204,9 +205,12 @@
 
         .mytab {
 
-            font-weight: bold;          /* 글자 굵게 */
-            color: black;               /* 글자 색을 검은색으로 설정 */
-            font-size: 16px;            /* 글자 크기 설정 */
+            font-weight: bold;
+            /* 글자 굵게 */
+            color: black;
+            /* 글자 색을 검은색으로 설정 */
+            font-size: 16px;
+            /* 글자 크기 설정 */
         }
 
         .pacename {
@@ -323,6 +327,21 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+        //데이터베이스에서 이미지 데이터 가져오기
+        const teamdata_load = await getDocs(collection(db, "teamdata"));
+
+
+        teamdata_load.forEach((doc) => {
+            if (doc.data().id != 0) {
+
+                let inner_html = `<a href="per_introduce/intro_${doc.data().id}.html">
+    <img src="${doc.data().image}" alt="Team Member ${doc.data().id}" style="width: 100px; height: auto;">
+</a>`
+                $(".pacename").append(inner_html);
+            }
+        })
+
+
 
         $("#postingbtn").click(async function () {
             let name = $('#name').val();
@@ -391,20 +410,16 @@
     </div>
 
     <div>
-        <button onclick="location.href='sub_fuc/introduce.html'"
-        class="mytab">
+        <button onclick="location.href='sub_fuc/introduce.html'" class="mytab">
             Introduce
         </button>
-        <button onclick="location.href='sub_fuc/guestbook.html'"
-            class="mytab">
+        <button onclick="location.href='sub_fuc/guestbook.html'" class="mytab">
             GuestBook
         </button>
-        <button onclick="location.href='sub_fuc/member_settings.html'"
-            class="mytab">
+        <button onclick="location.href='sub_fuc/member_settings.html'" class="mytab">
             Member Settings
         </button>
-        <button onclick="location.href='sub_fuc/team_train.html'"
-            class="mytab">
+        <button onclick="location.href='sub_fuc/team_train.html'" class="mytab">
             Train Record
         </button>
     </div>
@@ -420,21 +435,6 @@
     </div>
 
     <div class="pacename">
-        <a href="per_introduce\intro_kunghun.html">
-            <img src="pictures\kunghun.jpg" alt="Team Member 1" style="width: 100px; height: auto;">
-        </a>
-        <a href="per_introduce\intro_kungbin.html">
-            <img src="pictures\kungbin.jpg" alt="Team Member 2" style="width: 100px; height: auto;">
-        </a>
-        <a href="per_introduce\intro_junil.html">
-            <img src="pictures\junil.jpg" alt="Team Member 3" style="width: 100px; height: auto;">
-        </a>
-        <a href="per_introduce\intro_yunhyun.html">
-            <img src="pictures\yunhyun.jpg" alt="Team Member 4" style="width: 100px; height: auto;">
-        </a>
-        <a href="per_introduce\intro_yungyun.html">
-            <img src="pictures\yungyun.jpg" alt="Team Member 5" style="width: 100px; height: auto;">
-        </a>
     </div>
 
     <div>
@@ -460,7 +460,7 @@
             <p style="margin: 10px 0;">4. TIL 남은날까지 맨날 쓰기 </p>
             <p style="margin: 10px 0;">5. 1일 1TIL, 1알고리즘</p>
         </div>
-        
+
         <div class="semimessagebox" style="display: block; font-size: 40px; font-family: 'Climate Crisis', sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
