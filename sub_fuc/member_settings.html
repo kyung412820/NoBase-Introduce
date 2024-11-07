@@ -27,7 +27,6 @@
             measurementId: "G-DHQ744VQ07"
         };
 
-
         // Firebase 인스턴스 초기화
 
         // 메인페이지로 돌아가기
@@ -48,11 +47,15 @@
 
         querySnapshot.forEach((doc) => {
             if (doc.data().id != 0) {
+                if (EndID < doc.data().id) {
+                    EndID = doc.data().id;
+                    create_id = doc.data().id;
+                }
+
 
                 let inner_html = `<option value="${doc.data().id}">${doc.data().name}</option>`
                 $("#editselect").append(inner_html);
-                EndID = doc.data().id;
-                create_id = doc.data().id;
+
             }
 
         })
@@ -72,35 +75,36 @@
         })
         //팀원 추가버튼
         $("#adding").click(async function () {
-            
-
-
-                let image = $("#team-member-image").val();
-                let name = $("#team-member-name").val();
-                let age = $("#team-member-age").val();
-                let blog = $("#team-member-blog").val();
-                let gender = $("#team-member-gender").val();
-                let intro = $("#team-member-intro").val();
 
 
 
-                create_id = create_id + 1;
-                let data = {
-                    "image": image,
-                    "name": name,
-                    "age": age,
-                    "blog": blog,
-                    "gender": gender,
-                    "intro": intro,
-                    "id": create_id
-                };
-                if(create_id<=10){
+            let image = $("#team-member-image").val();
+            let name = $("#team-member-name").val();
+            let age = $("#team-member-age").val();
+            let blog = $("#team-member-blog").val();
+            let gender = $("#team-member-gender").val();
+            let intro = $("#team-member-intro").val();
+
+
+
+            create_id = create_id + 1;
+            let data = {
+                "image": image,
+                "name": name,
+                "age": age,
+                "blog": blog,
+                "gender": gender,
+                "intro": intro,
+                "id": create_id
+            };
+            if (create_id <= 10) {
                 await setDoc(doc(db, "teamdata", create_id.toString()), data)
                     .then(result => alert("추가되었습니다."))
-                    .catch(result => alert("추가에 실패했습니다."));}
-                    else{
-                        alert("최대 10명까지 등록이 가능합니다.");
-                    }
+                    .catch(result => alert("추가에 실패했습니다."));
+            }
+            else {
+                alert("최대 10명까지 등록이 가능합니다.");
+            }
             location.reload();
         });
 
